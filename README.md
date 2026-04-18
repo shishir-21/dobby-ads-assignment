@@ -7,7 +7,7 @@ A full-stack web application that allows users to register, log in, create folde
 ##  Live Links
 
 * 🔗 Frontend: https://dobby-ads-assignment-one.vercel.app
-* 🔗 Backend API: https://dobby-ads-assignment-93c4.onrender.com/api
+* 🔗 Backend API: https://dobby-ads-assignment-93c4.onrender.com
 
 ---
 
