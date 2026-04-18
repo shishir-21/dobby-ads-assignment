@@ -21,12 +21,12 @@ const Dashboard = () => {
 
   const fetchContents = async (folderId = null) => {
     try {
-      const { data } = await api.get('/api/folders', { params: { parentId: folderId } });
+      const { data } = await api.get('/folders', { params: { parentId: folderId } });
       setFolders(data.folders);
       setFiles(data.files);
       
       if (folderId) {
-        const sizeRes = await api.get(`/api/folders/${folderId}/size`);
+        const sizeRes = await api.get(`/folders/${folderId}/size`);
         setFolderSize(sizeRes.data.size);
       } else {
         setFolderSize(null);
@@ -68,7 +68,7 @@ const Dashboard = () => {
     e.preventDefault();
     if (!newFolderName.trim()) return;
     try {
-      await api.post('/api/folders', { name: newFolderName, parentId: currentFolder });
+      await api.post('/folders', { name: newFolderName, parentId: currentFolder });
       setNewFolderName('');
       setIsFolderModalOpen(false);
       fetchContents(currentFolder);
@@ -86,7 +86,7 @@ const Dashboard = () => {
       formData.append('folderId', currentFolder);
     }
     try {
-      await api.post('/api/files', formData, {
+      await api.post('/files', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       setUploadFile(null);
