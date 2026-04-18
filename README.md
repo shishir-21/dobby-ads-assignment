@@ -1,71 +1,190 @@
-# Dobby Drive - Full-Stack Cloud Storage Assignment
+#  Dobby Drive — Full Stack File Manager
 
-Dobby Drive is a full-stack, scalable cloud storage application similar to Google Drive, built as part of the Backend Developer assignment. It allows users to securely manage their files and seamlessly organize them into nested folders. 
-
-## 🚀 Live Links
-- **Frontend (Vercel):** [Live Application](https://dobby-ads-assignment-one.vercel.app)
-- **Backend API (Render):** [API Endpoint](https://dobby-ads-assignment-93c4.onrender.com)
+A full-stack web application that allows users to register, log in, create folders, and upload images. Built using modern technologies and deployed on cloud platforms.
 
 ---
 
-## 🌟 Key Features
-- **Secure Authentication:** JWT-based user login and registration system. State protected routes.
-- **Nested Folder Structure:** Infinite levels of folder nesting just like a real file system.
-- **Image Uploads:** Robust multipart file uploads securely hosted on Cloudinary.
-- **Dynamic Size Profiling:** Recursive and automatic calculation of folder sizes displaying exact payload metrics.
-- **Deployment Ready:** Vercel frontend properly configured for dynamic SPA routing with full CORS coverage and environment configuration linked securely to Render.
+##  Live Links
+
+* 🔗 Frontend: https://dobby-ads-assignment-one.vercel.app
+* 🔗 Backend API: https://dobby-ads-assignment-93c4.onrender.com/api
 
 ---
 
-## 🛠️ Tech Stack
+##  Features
 
-### Frontend
-- **React.js** (Vite)
-- **React Router DOM**
-- **Axios** (Configured with Centralized Interceptors)
-- **Vanilla CSS** (Vibrant UI mapped to sleek dark themes)
-- **Lucide Icons**
-
-### Backend
-- **Node.js** & **Express.js**
-- **MongoDB** (Atlas) & **Mongoose**
-- **JWT** (JSON Web Tokens logic for authentication)
-- **Cloudinary** (Secure bucket uploads for visual media)
-- **Multer** (File upload pipeline logic)
+* 🔐 User Authentication (Register / Login)
+* 📁 Create folders
+* 🖼 Upload images (Cloudinary)
+* 📂 View files inside folders
+* 🔄 Persistent storage using MongoDB
+* 🌍 Fully deployed (Vercel + Render)
 
 ---
 
-## ⚙️ Quick Start (Local Setup)
+##  Tech Stack
 
-To run this application locally, you will need a `.env` in both the `frontend` and `backend` directories. 
+### Frontend (`/frontend`)
 
-**Backend (`/backend/.env`)**
+* React (Vite)
+* Axios
+* CSS
+
+### Backend (`/backend`)
+
+* Node.js
+* Express.js
+* MongoDB (Mongoose)
+* JWT Authentication
+
+### Cloud Services
+
+* MongoDB Atlas (Database)
+* Cloudinary (Image Storage)
+* Vercel (Frontend Hosting)
+* Render (Backend Hosting)
+
+---
+
+##  Project Structure
+
+```bash
+dobby-ads-assignment/
+│
+├── backend/
+│   ├── config/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   ├── index.js
+│   └── mcp.js
+│
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   ├── dist/
+│   ├── index.html
+│   ├── vite.config.js
+│   └── vercel.json
+│
+├── .gitignore
+├── package.json
+└── README.md
+```
+
+---
+
+##  Environment Variables
+
+### Backend (`backend/.env`)
+
 ```env
 PORT=5000
-MONGO_URI=your_mongo_db_connection_string
+MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
-CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
-CLOUDINARY_API_KEY=your_cloudinary_key
-CLOUDINARY_API_SECRET=your_cloudinary_secret
+
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
 ```
 
-**Frontend (`/frontend/.env`)**
+---
+
+### Frontend (`frontend/.env`)
+
 ```env
-# Don't forget the /api suffix to streamline endpoint consumption!
-VITE_API_URL=http://localhost:5000/api
+VITE_API_URL=https://dobby-ads-assignment-93c4.onrender.com/api
 ```
 
-Start up both instances:
-```bash
-# In /backend
-npm install
-npm dev
+---
 
-# In /frontend
+##  Local Setup
+
+### 1️ Clone Repository
+
+```bash
+git clone https://github.com/your-username/dobby-ads-assignment.git
+cd dobby-ads-assignment
+```
+
+---
+
+### 2️ Run Backend
+
+```bash
+cd backend
 npm install
 npm run dev
 ```
 
 ---
 
-*Thank you for reviewing my assignment! Designed and deployed seamlessly emphasizing edge-case protection, modular code architecture, and a production-ready scaling logic.*
+### 3️ Run Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+---
+
+##  API Endpoints
+
+### Auth
+
+* POST `/api/auth/register`
+* POST `/api/auth/login`
+
+### Folders
+
+* POST `/api/folders`
+* GET `/api/folders`
+
+### Files
+
+* POST `/api/files/upload`
+* GET `/api/files`
+
+---
+
+##  Testing Flow
+
+1. Register a new user
+2. Login
+3. Create a folder
+4. Upload an image
+5. Refresh dashboard
+
+---
+
+##  Issues Faced & Fixes
+
+*  CORS errors → Fixed via backend configuration
+*  API route mismatch → Added `/api` prefix
+*  Vercel routing issue → Added `vercel.json`
+*  Environment mismatch → Centralized `VITE_API_URL`
+
+---
+
+##  Future Improvements
+
+* Delete files/folders
+* Folder hierarchy (nested folders)
+* Search functionality
+* Drag & drop uploads
+
+---
+
+##  Author
+
+**Shishir Mathur**
+B.Tech CSE (Data Science)
+
+---
+
+##  Final Note
+
+This project demonstrates real-world full-stack development including deployment, debugging, and API integration.
+
+---
